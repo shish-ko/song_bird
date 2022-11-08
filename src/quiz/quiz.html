@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Quiz</title>
+</head>
+
+<body>
+  <div class="body-wrapper">
+    <aside class="menu-panel">
+      <div class="menu__logo"></div>
+      <div class="menu__nav">
+        <ul class="menu__list">
+          <li class="menu__item"><a href="#" class="menu__link">about</a> </li>
+          <li class="menu__item menu__item_current"><a href="./quiz/quiz.html" class="menu__link">bird-song quizz</a>
+          </li>
+          <li class="menu__item"><a href="#" class="menu__link">top-results</a> </li>
+        </ul>
+      </div>
+    </aside>
+    <main>
+      <header class="quiz-addons">
+
+        <input type="text" class="quiz-addons__birds-library">
+        <button class="quiz-addons__language">English</button>
+        <!-- <div class="quiz-addons__start">Start quiz</div> -->
+        <div class="quiz-addons__score">Score: <span class="quiz__score">0</span></div>
+
+      </header>
+      <main class="quiz">
+        <div class="quiz__bird-types">
+          <div class="quiz__bird-type quiz__bird-type_first">Разминка</div>
+          <div class="quiz__bird-type">Воробьиные</div>
+          <div class="quiz__bird-type">Лесные птицы</div>
+          <div class="quiz__bird-type">Певчие птицы</div>
+          <div class="quiz__bird-type">Хищные птицы</div>
+          <div class="quiz__bird-type quiz__bird-type_last">Морские птицы</div>
+        </div>
+        <div class="audio">
+          <!-- <div class="audio__bird-pic"><img src="../assets/img/unknown-bird.jpg" alt="current bird" class=""></div> -->
+          <img src="../assets/img/unknown-bird.jpg" alt="current bird" class="audio__bird-pic">
+          <div class="audio__player">
+            <div class="audio__bird-name">*****</div>
+            <div class="audio__deliner"></div>
+            <div class="audio__controls">
+              <div class="audio__play-pause"></div>
+              <div class="audio__track">
+                <div class="audio__play-time"></div>
+                <div class="audio__time">
+                  <span class="audio__current-time">0:00</span> / <span class="audio__total-time">0:00</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="quiz__answers">
+          <section class="quiz-block">
+            <h2 class="block-title">Answers</h2>
+            <ul class="answers">
+              <li class="answers__item">
+                <div class="answer__color"></div><span class="answers__answer">ывмвым</span>
+              </li>
+              <li class="answers__item">
+                <div class="answer__color"></div><span class="answers__answer">вымывм</span>
+              </li>
+              <li class="answers__item">
+                <div class="answer__color"></div><span class="answers__answer">йцвцйу</span>
+              </li>
+              <li class="answers__item">
+                <div class="answer__color"></div><span class="answers__answer">фывыфв</span>
+              </li>
+              <li class="answers__item">
+                <div class="answer__color"></div><span class="answers__answer">йцуцйу</span>
+              </li>
+              <li class="answers__item">
+                <div class="answer__color"></div><span class="answers__answer">Грач</span>
+              </li>
+            </ul>
+          </section>
+          <section class="quiz-block">
+            <h2 class="block-title">Description</h2>
+  
+          </section>
+
+        </div>
+      </main>
+    </main>
+
+  </div>
+
+</body>
+
+</html>
