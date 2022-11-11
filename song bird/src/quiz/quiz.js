@@ -1,9 +1,8 @@
 // import "./style.scss"
 import birdsData from '../data/birds.js';
 let currentLevel = -1;
-// function getRandomBird() {
-//   return birdsData[currentLevel][Math.floor(Math.random() * 6)]
-// }
+import Player from '../data/player.js';
+
 
 const answers = document.querySelectorAll('.answers__answer');
 const descriptionPlayer = document.querySelector('.description__audio');
@@ -25,8 +24,11 @@ function durationConverter(ms) {
   const seconds = String(ceil % 60).padStart(2, '0')
   return minutes + ':' + seconds
 }
-const quizAudio = new Audio();
-const players=new Set();
+
+const players={
+  audio: new Audio(),
+  description__audio: new Audio()
+};
 
 function loadAudio(player, bird) {
   const loadingMessage = player.querySelector('.audio__loading');
@@ -41,37 +43,37 @@ function loadAudio(player, bird) {
   controls.hidden = true;
   loadingMessage.hidden = false;
   
-  players.add(new Audio(bird.audio))
-  quizAudio.src = bird.audio;
+
+  players[player.className].src = bird.audio;
   console.log(players)
   let isQuizAudioPlay = false;
-  quizAudio.addEventListener('loadedmetadata', () => {
-    quizAudioDurationTime.textContent = durationConverter(quizAudio.duration);
+  players[player.className].addEventListener('loadedmetadata', () => {
+    quizAudioDurationTime.textContent = durationConverter(players[player.className].duration);
     quizAudioCurrentTime.textContent = "00:00";
   });
-  quizAudio.addEventListener('canplaythrough', () => {controls.hidden = false; loadingMessage.hidden = true })
+  players[player.className].addEventListener('canplaythrough', () => {controls.hidden = false; loadingMessage.hidden = true })
 
   playBtn.addEventListener('click', () => {
     playBtn.classList.toggle('audio__play-pause_pause');
     if (isQuizAudioPlay) {
       isQuizAudioPlay = false;
-      quizAudio.pause();
+      players[player.className].pause();
     } else {
       isQuizAudioPlay = true;
-      quizAudio.play();
+      players[player.className].play();
       showCurrentTrackTime();
     }
   })
   function showCurrentTrackTime() {
-    quizTrackCurrent.style.width = `${quizTrack.clientWidth / quizAudio.duration * quizAudio.currentTime}px`
+    quizTrackCurrent.style.width = `${quizTrack.clientWidth / players[player.className].duration * players[player.className].currentTime}px`
     if (isQuizAudioPlay) {
-      quizAudioCurrentTime.textContent = durationConverter(quizAudio.currentTime);
+      quizAudioCurrentTime.textContent = durationConverter(players[player.className].currentTime);
       setTimeout(() => {
         showCurrentTrackTime();
       }, 1000);
     }
   }
-  quizAudio.onended = () => {
+  players[player.className].onended = () => {
     showCurrentTrackTime();
     isQuizAudioPlay = false;
     playBtn.classList.remove('audio__play-pause_pause');
