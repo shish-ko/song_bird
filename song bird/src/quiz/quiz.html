@@ -6,33 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
   <title>Quiz</title>
 </head>
 
 <body>
-  <script src="./quiz.js" type="module"></script>
+  <!-- <script src="./quiz.js" type="module"></script> -->
   <div class="body-wrapper">
     <aside class="menu-panel">
       <div class="menu__logo"></div>
-      <div class="menu__nav">
+      <nav class="menu__nav">
         <ul class="menu__list">
-          <li class="menu__item"><a href="../index.html" class="menu__link">about</a> </li>
-          <li class="menu__item menu__item_current"><a href="#" class="menu__link">bird-song quizz</a>
+          <li class="menu__item"><a href="../index.html" class="menu__link">About</a> </li>
+          <li class="menu__item menu__item_current"><a href="#" class="menu__link">Bird-song quizz</a>
           </li>
-          <li class="menu__item"><a href="#" class="menu__link">top-results</a> </li>
+          <li class="menu__item"><a href="#" class="menu__link">Top-results</a> </li>
         </ul>
-      </div>
+      </nav>
     </aside>
     <main class="game-panel">
       <header class="quiz-addons">
 
         <input type="text" class="quiz-addons__birds-library">
-        <button class="quiz-addons__language">English</button>
-        <!-- <div class="quiz-addons__start">Start quiz</div> -->
         <div class="quiz-addons__score">Score: <span class="quiz__score">0</span></div>
+        <button class="btn quiz-addons__language">English</button>
+        <!-- <div class="quiz-addons__start">Start quiz</div> -->
 
       </header>
       <main class="quiz">
@@ -45,9 +45,19 @@
           <div class="quiz__bird-type quiz__bird-type_last">Морские птицы</div>
         </div>
         <div class="audio">
-          <img src="../assets/img/unknown-bird.jpg" alt="current bird" class="audio__bird-pic">
+          <img src="../assets/unknown-bird.jpg" alt="current bird" class="audio__bird-pic">
           <div class="audio__player">
-            <div class="audio__bird-name">*****</div>
+            <div class="audio__name-volume-wrapper">
+              <div class="audio__bird-name">*****</div>
+              <div class="audio__volume">
+                <div class="audio__volume-icon"></div>
+                <div class="audio__volume-block">
+                  <div class="audio__volume-bar">
+                    <div class="audio__volume-current"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="audio__deliner"></div>
             <div class="audio__loading">Audio is loading...</div>
             <div class="audio__controls" hidden>
@@ -90,10 +100,22 @@
           <section class="description-block">
             <h2 class="block-title">Description</h2>
             <div class="description">
+              <div class="description__disclaimer">Прослушайте мелодию. Сделайте выбор.</div>
               <div class="description__audio">
-                <img src="../assets/img/unknown-bird.jpg" alt="current bird" class="audio__bird-pic">
+                <img src="../assets/unknown-bird.jpg" alt="current bird" class="audio__bird-pic description__bird-pic">
                 <div class="audio__player">
-                  <div class="audio__bird-name">*****</div>
+                  <div class="audio__name-volume-wrapper">
+                    <div class="audio__bird-name">*****</div>
+                    <div class="audio__volume">
+                      <div class="audio__volume-icon"></div>
+                      <div class="audio__volume-block">
+                        <div class="audio__volume-bar">
+                          <div class="audio__volume-current"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="audio__latin-bird-name">*****</div>
                   <div class="audio__deliner"></div>
                   <div class="audio__loading">Audio is loading...</div>
                   <div class="audio__controls" hidden>
@@ -116,7 +138,7 @@
           </section>
 
         </div>
-        <button class="quiz__next-level">Следующий уровень</button>
+        <button class="btn quiz__next-level">Следующий уровень</button>
       </main>
     </main>
 

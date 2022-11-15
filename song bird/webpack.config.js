@@ -4,13 +4,13 @@ const HTMLWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   entry: {
-    main: './src/index.js',
+    // main: './src/index.js',
     quiz: "./src/quiz/quiz.js"
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/quiz'),
     filename: '[name].js',
-    assetModuleFilename: 'assets/[name][ext]'
+    // assetModuleFilename: '../assets/[name][ext]'
   },
   module: {
     rules: [
@@ -24,15 +24,19 @@ module.exports = {
         generator: {
           filename: "assets/video/[name][ext]"
         }
-      }
+      },
     ]
   },
-  plugins: [new HTMLWebpackPlugin({
-    filename: "index.html",
-    template: './src/index.html'
-  }),
+  plugins: [
+  //   new HTMLWebpackPlugin({
+  //   filename: "index.html",
+  //   template: './src/index.html',
+  //   favicon: './dist/assets/favicon.png'
+  // }),
   new HTMLWebpackPlugin({
     filename: "./quiz.html",
-    template: './src/quiz/quiz.html'
-  }) ]
+    template: './src/quiz/quiz.html',
+    favicon: './dist/assets/favicon.png'
+  }) 
+]
 };
