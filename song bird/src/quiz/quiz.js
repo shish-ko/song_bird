@@ -52,7 +52,8 @@ function setNewLevel() {
       birdSongBestResults.push(result)
       localStorage.setItem('birdSongBestResults', JSON.stringify(birdSongBestResults));
     }
-    window.location.href="../index.html";
+    window.location.href="../top-results/top-res.html";
+    return;
   }
   isCorrectAnswer = false;
   nextLevelBtn.classList.add("quiz__next-level_blocked");
@@ -94,7 +95,7 @@ function clickAnswer(event) {
     isCorrectAnswer = true;
     event.target.closest('li').firstElementChild.classList.add('answer__color_right');
     nextLevelBtn.addEventListener("click", setNewLevel);
-    let levelScore = 6;
+    let levelScore = 5;
     for (let i = 0; i < answersBlock.children.length; i++) {
       if (answersBlock.children[i].hasOwnProperty("quiz")) levelScore -= 1;
     }

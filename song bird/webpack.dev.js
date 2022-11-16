@@ -25,16 +25,17 @@ module.exports = merge(common, {
     ],
   },
   plugins: [new MiniCssExtractPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, 'src', 'assets', 'template'),
-          to: '../assets',
-        },
-        {
-          from: path.join(__dirname, 'src', 'assets', 'sound'),
-          to: '../assets',
-        },
-      ],
-    })]
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(__dirname, 'src', 'assets', 'template'),
+    //       to: '../assets',
+    //     },
+    //     {
+    //       from: path.join(__dirname, 'src', 'assets', 'sound'),
+    //       to: '../assets',
+    //     },
+    //   ],
+    // })
+  ]
 });
