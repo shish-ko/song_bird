@@ -11,7 +11,7 @@ class Player {
     this.quizAudioDurationTime = this.player.querySelector('.audio__total-time');
     this.quizAudioCurrentTime = this.player.querySelector('.audio__current-time');
     this.quizTrack = this.player.querySelector('.audio__track');
-    this.quizTrackCurrent = this.player.querySelector('.audio__play-time');
+   
     this.songTitle=this.player.querySelector('.audio__bird-name');
     this.songSubtitle=this.player.querySelector('.audio__latin-bird-name');
     this.songPic=this.player.querySelector('.audio__bird-pic');
@@ -28,6 +28,7 @@ class Player {
       this.showCurrentTrackTime();
       this.playBtn.classList.remove('audio__play-pause_pause');
     }
+    this.quizTrack.addEventListener('change', ()=>this.setCurrentTime())
     this.volumeBlock.addEventListener("click", (()=>this.setVolume()));
     this.playBtn.addEventListener('click', () => this.playPause()) // using the arrow func you prevent passing caller's 'this'. for more see: https://stackoverflow.com/questions/43727516/how-adding-event-handler-inside-a-class-with-a-class-method-as-the-callback
   }
@@ -36,6 +37,7 @@ class Player {
     this.loadingMessage.hidden = false;
     this.audio.src = path;
     this.playBtn.classList.remove('audio__play-pause_pause');
+    this.audio.onloadedmetadata=()=>this.quizTrack.setAttribute('max', `${Math.ceil(this.audio.duration)}`);
   }
   durationConverter(ms) {
     const ceil = Math.ceil(ms)
@@ -53,7 +55,8 @@ class Player {
     }
   }
   showCurrentTrackTime() {
-    this.quizTrackCurrent.style.width = `${this.quizTrack.clientWidth / this.audio.duration * this.audio.currentTime}px`
+    this.quizTrack.value= `${Math.ceil(this.audio.currentTime)}`;
+    
     if (!this.audio.paused) {
       this.quizAudioCurrentTime.textContent = this.durationConverter(this.audio.currentTime);
       setTimeout(() => {
@@ -72,6 +75,9 @@ class Player {
   }
   hidden(arg){
     return this.player.hidden=arg
+  }
+  setCurrentTime(){
+    this.audio.currentTime=event.target.value;
   }
 }
 export default Player

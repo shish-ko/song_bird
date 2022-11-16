@@ -86,6 +86,7 @@ function clickAnswer(event) {
   descriptionPlayer.head(birdsData[currentLevel][birdId - 1].image, birdsData[currentLevel][birdId - 1].name, birdsData[currentLevel][birdId - 1].species);
   birdDescription.textContent=birdsData[currentLevel][birdId - 1].description;
   if (birdId === hiddenBird.id && !isCorrectAnswer) {
+    currentLevel===5 ? nextLevelBtn.textContent="Результаты" : null; 
     nextLevelBtn.classList.remove("quiz__next-level_blocked")
     mainPlayer.audio.pause();
     wrongAnswerSound.currentTime=0;
