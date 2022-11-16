@@ -4,10 +4,15 @@
   visibility: hidden;
 }
 $desktop: 1220px;
+$tablet: 1030px;
 $inputHeight: 50px;
+$mobile: 750px;
+$smallMobile: 500px;
+
 * {
   box-sizing: border-box;
 }
+
 .btn{
   border-radius: 30px;
   background: linear-gradient(91.86deg, #209569 14.46%, #095E3D 99.63%);
@@ -26,9 +31,13 @@ $inputHeight: 50px;
   transform: scale(1.05);
 }
 html{
+  background-color:#FBF9F9;
   font-size: 10px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  @media screen and (max-width: $tablet){
+    font-size: 8px;
+  }
 }
 a, 
 a:visited{
@@ -43,11 +52,47 @@ a:visited{
   background: #FBF9F9;
   color: rgba(105, 111, 121, 1);
   display: flex;
+  position: relative;
 }
 
 .menu-panel{
-  flex-basis: 20%;
+  position: relative;
+  flex-basis: 22%;
   height: 100%;
+  padding-left: 10px;
+  @media screen and (max-width: $mobile) {
+    position: fixed;
+    transform: translateX(-100% );
+    transition: all .3s ease-in;
+    background-color: #95aea4;
+    z-index: 1;
+  }
+}
+.menu-panel_active{
+  transform:translateX(0);
+}
+.menu__burger-menu{
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border-radius: 50%;
+  border: rgba(147, 215, 80, 0.35) 1px solid;
+  top: 10px;
+  right: -15px;
+  background: linear-gradient(91.86deg, #209569 14.46%, #095E3D 99.63%);
+  transform: translateX(100%);
+  padding: 15px 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  @media screen and (max-width: $mobile) {
+    display: flex;
+  }
+}
+.menu__burger-line{
+  width: 100%;
+  height: 2px;
+  background-color: #3ba014;
 }
 .menu__logo{
   background: url("../assets/img/index.png");
@@ -89,21 +134,27 @@ ul{
 }
 
 .game-panel{
-  flex-basis: 75%;
+  flex-basis: 78%;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: $mobile) {
+    flex-basis: 100%;
+  }
 }
 .quiz-addons{
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
   align-items: center;
+  @media screen and (max-width: $mobile) {
+    padding-left: 75px;
+  }
 }
 .quiz-addons__birds-library{
   background: #FFFFFF;
   box-shadow: 0px 15px 40px 5px #EDEDED;
   border-radius: 30px;
-  width: 356px;
+  width: 39%;
   height: $inputHeight;
   border: 0;
 }
@@ -123,6 +174,9 @@ ul{
   box-shadow: 0px 15px 40px 5px #EDEDED;
   border-radius: 30px;
   justify-content: space-around;  
+  @media screen and (max-width: $smallMobile) {
+    margin: 10px 10px;
+  }
 }
 .quiz__bird-types{
   display: flex;
@@ -139,12 +193,22 @@ ul{
   transition: opacity 1s linear;
   color: #000000;
   opacity: .5;
+  @media screen and (max-width: $tablet) {
+    width: inherit;
+  }
+  @media screen and (max-width: $smallMobile) {
+    display: none;
+    font-size: 2rem ;
+  }
 }
 .quiz__bird-type_current{
   opacity: 1;
   text-decoration: underline;
   text-decoration-color: #019A75;
   text-underline-offset: 5px;
+  @media screen and (max-width: $smallMobile) {
+    display: block;
+  }
 }
 @keyframes bgMovement {
   0% {background-position: 0px};
@@ -155,9 +219,16 @@ ul{
   display: flex;
   gap: 36px;
   align-items: center;
+  @media screen and (max-width: $mobile) {
+    flex-direction: column;
+    gap: 2px;
+  }
 }
 .audio__bird-pic.description__bird-pic{
   width: 25%;
+  @media screen and (max-width: $mobile) {
+    display: none;
+  }
 }
 .audio__bird-pic{
   display: block;
@@ -165,21 +236,45 @@ ul{
   aspect-ratio: 9/7;
   border-radius: 10px;
   object-fit: cover;
+  @media screen and (max-width: $mobile) {
+    max-width: 164px;
+    width: 35%;
+  }
 }
 .audio__player{
   flex-grow: 1;
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+  }
 }
 .audio__name-volume-wrapper{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .audio__volume{
   display: flex;
+  @media screen and (max-width: $smallMobile) {
+   flex-direction: row-reverse; 
+   position: absolute;
+   right: 0;
+   &:hover .audio__volume-block{
+      width: auto;
+    }
+  }
 }
 .audio__volume-block{
   position: relative;
+  transition: width 0.5s linear;
+  overflow: hidden;
+  z-index: 1;
+  background-color: white;
+  @media screen and (max-width: $smallMobile) {
+   width: 0;
+  }
 }
+
 .audio__volume-bar{
   width: 80px;
   height: 4px;
@@ -202,6 +297,10 @@ ul{
   display: inline-block;
   margin-right: 15px;  
   background-size: cover;
+  @media screen and (max-width: $smallMobile) {
+    margin-right: 0px;
+    margin-left: 10px;
+  }
 }
 .audio__bird-name{
   font-size: 2.3rem;
@@ -272,6 +371,7 @@ ul{
 .quiz__answers{
   display: flex;
   gap: 2rem;
+  margin-bottom: 5px;
 }
 .answers-block{
   flex-basis: 30%;
@@ -284,6 +384,10 @@ ul{
   box-shadow: 0px 15px 40px 5px #EDEDED;
   border-radius: 30px;
   padding: 0px 1rem;
+  @media screen and (max-width: $mobile) {
+    height: 300px;
+    border-radius: 20px;
+  }  
 }
 li{
   list-style: none;
@@ -295,6 +399,9 @@ li{
   align-items: center;
   gap: 1rem;
   cursor: pointer;
+  @media screen and (max-width: $smallMobile) {
+    padding-left: 0;
+  }
 }
 .answer__color{
   width: .9rem;
@@ -313,6 +420,9 @@ li{
   font-size: 2rem;
   font-weight: 600;
   position: relative;
+  @media screen and (max-width: $smallMobile) {
+    font-weight: 400;
+  }
 }
 .answers__answer::after {
   background: none repeat scroll 0 0 transparent;
@@ -332,8 +442,9 @@ li{
 }
 .description__text{
   font-size: 1.6rem;
-  margin-top: 10px;
+  margin-top: 20px;
   font-weight: 300;
+  
 }
 .quiz__next-level{
   width: 70%;

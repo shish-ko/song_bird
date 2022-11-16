@@ -14,20 +14,51 @@ const shownScore = document.querySelector('.quiz__score');
 const birdTypes = document.querySelector(".quiz__bird-types");
 const birdDescription=document.querySelector('.description__text');
 const descriptionDisclaimer=document.querySelector('.description__disclaimer');
+const volumeBlock=document.querySelector('.audio__volume');
 let hiddenBird;
 const rightAnswerSound= new Audio("../assets/right-answer.ogg");
 const wrongAnswerSound= new Audio("../assets/wrong-answer.mp3");
+const menu=document.querySelector('.menu-panel');
 
 let isCorrectAnswer = false;
 let totalScore = 0;
 
+// burger Menu start
+
+menu.addEventListener('click', ()=>{
+  menu.classList.toggle('menu-panel_active');
+})
+
+// burger Menu end
+
+// volume bar appearance
+// volumeIcon.addEventListener('hover', ()=>document.querySelector('.audio__volume-block').classList.)
+
 
 function setNewLevel() {
   currentLevel += 1;
+  if(currentLevel===6){
+    const result = {
+      time: new Date(),
+      result: totalScore
+    }
+    if(localStorage.key('birdSongBestResults')){
+      const birdSongBestResults=JSON.parse(localStorage.getItem('birdSongBestResults'));
+      birdSongBestResults.push(result);
+      localStorage.setItem('birdSongBestResults', JSON.stringify(birdSongBestResults));
+    }else{
+      console.log(result)
+      const birdSongBestResults=[];
+      birdSongBestResults.push(result)
+      localStorage.setItem('birdSongBestResults', JSON.stringify(birdSongBestResults));
+    }
+    window.location.href="../index.html";
+  }
   isCorrectAnswer = false;
   nextLevelBtn.classList.add("quiz__next-level_blocked");
   hiddenBird = birdsData[currentLevel][Math.floor(Math.random() * 6)];
   mainPlayer.src = hiddenBird.audio;
+  document.querySelectorAll('.quiz__bird-type').forEach(item=> item.classList.remove('quiz__bird-type_current'));
   birdTypes.children[currentLevel].classList.add("quiz__bird-type_current");
   nextLevelBtn.removeEventListener("click", setNewLevel);
   mainPlayer.head(unknownBird, "*****");
@@ -55,7 +86,9 @@ function clickAnswer(event) {
   birdDescription.textContent=birdsData[currentLevel][birdId - 1].description;
   if (birdId === hiddenBird.id && !isCorrectAnswer) {
     nextLevelBtn.classList.remove("quiz__next-level_blocked")
-    mainPlayer.audio.pause()
+    mainPlayer.audio.pause();
+    wrongAnswerSound.currentTime=0;
+    wrongAnswerSound.pause();
     rightAnswerSound.play();
     mainPlayer.head(hiddenBird.image, hiddenBird.name);   
     isCorrectAnswer = true;
