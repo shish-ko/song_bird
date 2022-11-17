@@ -184,7 +184,7 @@ ul{
   align-items: center;
   border-radius: 1rem;
   overflow: hidden;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .quiz__bird-type{
   text-align: center;
@@ -365,7 +365,7 @@ input[type=range].audio__track::-webkit-slider-thumb {
   cursor: pointer;
   -webkit-appearance: none;
 }
-input[type=range].audio__track:focus::-webkit-slider-runnable-track {
+input[type=range].audio__track:hover::-webkit-slider-runnable-track {
   background: #78c056;
 }
 
