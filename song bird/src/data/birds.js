@@ -313,9 +313,9 @@ const birdsDataEn = [
     },
     {
       id: 2,
-      name: 'Shadoof',
+      name: 'Crane',
       species: 'Grus grus',
-      description: 'The sounds made by the shadoof are similar to the voiced «kur-ly - kur-ly». Cranes most often sing in a duet - one bird begins the song with the syllable «kur», and the second picks up «ly». If a bird sings alone, then it makes only the sound of «chickens».',
+      description: 'The sounds made by the crane are similar to the voiced «kur-ly - kur-ly». Cranes most often sing in a duet - one bird begins the song with the syllable «kur», and the second picks up «ly». If a bird sings alone, then it makes only the sound of «chickens».',
       image: 'https://live.staticflickr.com/65535/49221158846_b0b69a58f1.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC512582-190604_1087_Grus_tok.mp3'
     },
@@ -379,9 +379,9 @@ const birdsDataEn = [
     },
     {
       id: 4,
-      name: 'Songthrush',
+      name: 'Song thrush',
       species: 'Turdus philomelos',
-      description: 'Songthrush is the best singer from the sparrow squad. The song consists only of beautiful sonorous whistles and short trills. Most often it can be heard in the morning and evening. Thrushes sing during the entire nesting period.',
+      description: 'Song thrush is the best singer from the sparrow squad. The song consists only of beautiful sonorous whistles and short trills. Most often it can be heard in the morning and evening. Thrushes sing during the entire nesting period.',
       image: 'https://live.staticflickr.com/65535/48979125763_e2534f54bd.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC513326-190704_1146_TF-Glogow.mp3'
     },
@@ -421,7 +421,7 @@ const birdsDataEn = [
     },
     {
       id: 3,
-      name: 'Turtledove',
+      name: 'European turtle dove',
       species: 'Streptopelia turtur',
       description: 'Turtledoves live in mixed and broad-leaved forests, as well as in city parks and towns. Birds often choose places of life next to humans and easily get used to people. Due to the melodic pleasant singing of turtle doves, they are often bred at home.',
       image: 'https://live.staticflickr.com/65535/48063004977_84252f9ceb.jpg',
@@ -463,7 +463,7 @@ const birdsDataEn = [
     },
     {
       id: 2,
-      name: 'Nightingale',
+      name: 'Common nightingale',
       species: 'Luscinia luscinia',
       description: 'Nightingales sing from the beginning of May until the end of summer. Each song of the nightingale consists of 12 repeating elements, which are also called knees. In addition to their own trills, nightingales easily and well adopt the singing of other birds.',
       image: 'https://live.staticflickr.com/7605/27669397735_f3c21758f2.jpg',
@@ -479,7 +479,7 @@ const birdsDataEn = [
     },
     {
       id: 4,
-      name: 'Oriole',
+      name: 'Eurasian golden oriole',
       species: 'Oriolus oriolus',
       description: 'The melody of the oriole\'s voice is compared to the sound of a flute. It is difficult for a person to see the oriole, as it lives high in the trees. The oriole is not only a very beautiful, but also a useful bird. It destroys poisonous caterpillars that other birds do not eat.',
       image: 'https://live.staticflickr.com/65535/47102184004_58a93380b9.jpg',
@@ -495,7 +495,7 @@ const birdsDataEn = [
     },
     {
       id: 6,
-      name: 'Goldfinch',
+      name: 'European goldfinch',
       species: 'Carduelis carduelis',
       description: 'Goldfinches sing beautifully and melodiously. Both in nature and in captivity, they chirp almost all year round. More than 20 iridescent trills are distinguished in the singing of the goldfinch. Goldfinches get used to people, and can even return to the owner after they are released into the wild.',
       image: 'https://live.staticflickr.com//65535//49366257253_db3ce48b9a.jpg',
@@ -545,7 +545,7 @@ const birdsDataEn = [
     },
     {
       id: 6,
-      name: 'Eagle owl',
+      name: 'Eurasian eagle-owl',
       species: 'Bubo bubo',
       description: 'The flight of the eagle owl is silent, the eyesight is very sharp. These features make the bird an unsurpassed night hunter. The eagle owl has no natural enemies, not a single animal preys on adult birds. But foxes and wolves attack the chicks.',
       image: 'https://live.staticflickr.com/65535/48137123012_393653c2e4.jpg',
@@ -595,7 +595,7 @@ const birdsDataEn = [
     },
     {
       id: 6,
-      name: 'Seagull',
+      name: 'Gull',
       species: 'Larus argentatus',
       description: 'Seagulls inhabit the shores of the seas, lakes, rivers, reservoirs, swamps, often nest on islands. Since the end of the last century, seagulls began to appear in large cities, where they nest on the roofs of buildings. All seagulls lead a colonial lifestyle.',
       image: 'https://live.staticflickr.com/65535/48577115317_7034201dde.jpg',

@@ -146,9 +146,16 @@ ul{
   justify-content: space-between;
   padding: 10px 15px;
   align-items: center;
+  position: relative;
   @media screen and (max-width: $mobile) {
     padding-left: 75px;
   }
+}
+.quiz-addons__search-img{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  transform: translateX(15px);
 }
 .quiz-addons__birds-library{
   background: #FFFFFF;
@@ -157,6 +164,13 @@ ul{
   width: 39%;
   height: $inputHeight;
   border: 0;
+  padding-left: 45px;
+  font-size: 1.6rem;
+  color: #095E3D;
+}
+.quiz-addons__birds-library:focus{
+  outline-color: #095E3D;
+  outline-width: 1px;
 }
 .quiz-addons__language{
   width: 30%;
@@ -270,6 +284,7 @@ ul{
   overflow: hidden;
   z-index: 1;
   background-color: white;
+  cursor: pointer;
   @media screen and (max-width: $smallMobile) {
    width: 0;
   }
@@ -368,7 +383,10 @@ input[type=range].audio__track::-webkit-slider-thumb {
 input[type=range].audio__track:hover::-webkit-slider-runnable-track {
   background: #78c056;
 }
-
+datalist{
+  color: #07b68a;
+  -webkit-appearance: none;
+}
 
 
 .audio__time{
@@ -428,7 +446,7 @@ li{
   }
 }
 .answer__color{
-  width: .9rem;
+  min-width: .9rem;
   height: .9rem;
   border-radius: 50%;
   background-color: #8692A6;
@@ -482,4 +500,50 @@ li{
 }
 .btn.quiz__next-level_blocked:hover{
   transform: scale(1);
+}
+.randomPhoto{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 50%;
+  background-color: rgba(102, 188, 62, .9);
+  color: darkgreen;
+  padding: 6px;
+  box-shadow: 0px 0px 20px rgba(147, 215, 80, 0.35);  
+  display: none;
+  @media screen and (max-width: $tablet) {
+    width: 50%;
+  }
+  
+}
+.randomPhoto_active{
+  display: block;
+}
+.randomPhoto__images{
+  overflow-y: scroll;
+  height: 100%;
+}
+.randomPhoto__img{
+  object-fit: cover;
+  width: 100%;
+  margin-bottom: 5px;
+
+}
+.randomPhoto__title{
+  font-size: 2rem;
+  text-align: center;
+  color: snow;
+}
+.randomPhoto__title_error{
+  background-color: brown;
+  margin-bottom: 10px;
+}
+.btn-close{
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  aspect-ratio: 1/1;
+  // transform: translate(100%, -100%);
 }
