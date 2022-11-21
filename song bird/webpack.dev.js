@@ -15,7 +15,7 @@ module.exports = merge(common, {
         test: /\.scss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          MiniCssExtractPlugin.loader,
+          "style-loader",
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
@@ -24,18 +24,5 @@ module.exports = merge(common, {
       },
     ],
   },
-  plugins: [new MiniCssExtractPlugin(),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.join(__dirname, 'src', 'assets', 'template'),
-    //       to: '../assets',
-    //     },
-    //     {
-    //       from: path.join(__dirname, 'src', 'assets', 'sound'),
-    //       to: '../assets',
-    //     },
-    //   ],
-    // })
-  ]
+  plugins: [new MiniCssExtractPlugin()]
 });

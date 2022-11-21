@@ -104,7 +104,7 @@ function setNewLevel() {
       birdSongBestResults.push(result)
       localStorage.setItem('birdSongBestResults', JSON.stringify(birdSongBestResults));
     }
-    window.location.href = "../top-results/top-res.html";
+    window.location.href = "./top-res.html";
     return;
   }
   isCorrectAnswer = false;

@@ -73,7 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 window.addEventListener('beforeunload', ()=>localStorage.setItem("songBirdLang", currentLanguage))
 
-document.querySelector(".result__try-again").addEventListener('click', ()=>window.location='../quiz/quiz.html');
+document.querySelector(".result__try-again").addEventListener('click', ()=>window.location='./quiz.html');
 
 //settig search for additional photos
 
