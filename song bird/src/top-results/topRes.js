@@ -1,5 +1,6 @@
 import "./styles.scss";
 import langArr from '../data/language.js';
+import {BirdSearch} from "../data/birdSearch.js";
 
 const result=document.querySelector('.result');
 const tryAgainButton=document.querySelector('.result__try-again');
@@ -7,10 +8,12 @@ const congratulation=document.querySelector('.result__congratulation');
 const menu=document.querySelector('.menu-panel');
 const langBtn=document.querySelector('.quiz-addons__language');
 
+
 let currentLanguage=localStorage.getItem("songBirdLang") || "en";
+let isResultsShown=false
 
 function changeLanguage() {
-  if(result.hasChildNodes('ul.top-results')) result.lastChild.remove()
+  if(isResultsShown) result.lastChild.remove()
   const menuItems = document.querySelectorAll('.menu__link');
   for (let i = 0; i < menuItems.length; i++) {
     menuItems[i].textContent = `${langArr[currentLanguage].menu[i]}`
@@ -29,6 +32,7 @@ langBtn.addEventListener('click', ()=>{
 console.log(result.hasChildNodes('ul.top-results'))
 function showResults(){
   if(localStorage.getItem('birdSongBestResults')){
+    isResultsShown=true
     const bestResults=JSON.parse(localStorage.getItem('birdSongBestResults'));
     if(bestResults.length>10){
       bestResults.splice(0, bestResults.length-10);
@@ -68,3 +72,12 @@ window.addEventListener('DOMContentLoaded', () => {
   changeLanguage();
 });
 window.addEventListener('beforeunload', ()=>localStorage.setItem("songBirdLang", currentLanguage))
+
+document.querySelector(".result__try-again").addEventListener('click', ()=>window.location='../quiz/quiz.html');
+
+//settig search for additional photos
+
+const getAdditionPhotos=new BirdSearch(document.body);
+getAdditionPhotos.setDatalist();
+
+// language change start

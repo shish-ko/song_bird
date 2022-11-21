@@ -1,3 +1,5 @@
+import errorBird from '../assets/template/error-bird.png'
+
 class Player {
   audio = new Audio();
   that=this
@@ -17,7 +19,7 @@ class Player {
     this.songPic=this.player.querySelector('.audio__bird-pic');
     this.volumeBlock=this.player.querySelector('.audio__volume-block');
     this.currentVolume=this.player.querySelector('.audio__volume-current');
-    this.songPic.addEventListener("error", () => this.songPic.src = "../assets/error-bird.png")
+    this.songPic.addEventListener("error", () => this.songPic.src = errorBird)
     this.audio.addEventListener('canplaythrough', () => { this.controls.hidden = false; this.loadingMessage.hidden = true })
     this.audio.addEventListener('loadedmetadata', () => {
       this.quizAudioDurationTime.textContent = this.durationConverter(this.audio.duration);
