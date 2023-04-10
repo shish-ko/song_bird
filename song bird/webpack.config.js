@@ -1,8 +1,9 @@
 const path = require('path');
 const merge = require("webpack-merge");
-const HTMLWebpackPlugin = require("html-webpack-plugin")
+const HTMLWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
-const assetsDir=path.join(__dirname, 'dist', 'assets')
+const assetsDir = path.join(__dirname, 'dist', 'assets')
 module.exports = {
   entry: {
     main: './src/index.js',
@@ -16,17 +17,17 @@ module.exports = {
   },
   module: {
     rules: [
-        {
-          test: /\.(png|svg|jpg|jpeg)$/,
-          type: 'asset/resource'
-        },
-        {
-          test: /\.(ogg|mp3)$/,
-          type: 'asset/resource',
-          // generator: {
-          //   filename: "assets/[name][ext]"
-          // }
-        },
+      {
+        test: /\.(png|svg|jpg|jpeg)$/,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.(ogg|mp3)$/,
+        type: 'asset/resource',
+        // generator: {
+        //   filename: "assets/[name][ext]"
+        // }
+      },
       {
         test: /\.html$/,
         use: 'html-loader'
@@ -40,8 +41,8 @@ module.exports = {
       },
     ]
   },
-
   plugins: [
+    new Dotenv(),
     new HTMLWebpackPlugin({
       filename: "index.html",
       template: './src/index.html',
@@ -53,12 +54,12 @@ module.exports = {
       template: './src/quiz/quiz.html',
       favicon: './src/assets/img/favicon.png',
       chunks: ["quiz"]
-    }), 
+    }),
     new HTMLWebpackPlugin({
       filename: "./top-res.html",
       template: './src/top-results/top-res.html',
       favicon: './src/assets/img/favicon.png',
       chunks: ["topRes"]
-    }), 
+    }),
   ]
 };

@@ -50,8 +50,7 @@ class BirdSearch {
       this.titlePhotos("No Wikipedia photo", 'error');
     }
   
-  
-    let url2 = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=7f186c5d957a329557c371dc86a52bd1&tags=${birdName}bird&extras=url_m&format=json&nojsoncallback=1`
+    let url2 = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${process.env.FLICKR_KEY}&tags=${birdName}bird&extras=url_m&format=json&nojsoncallback=1`
     const res2 = await fetch(url2);
     let data2 = await res2.json();
   
@@ -67,7 +66,7 @@ class BirdSearch {
       this.titlePhotos("No Flickr photos", 'error');
     }
     try {
-      let url3 = `https://www.googleapis.com/customsearch/v1?key=AIzaSyD7FAQVefUhArWXMHXB8w3vlAiupj-ExIE&cx=03834bb717fd0430a&q=${birdName}%20bird&searchType=image`;
+      let url3 = `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_KEY}&cx=03834bb717fd0430a&q=${birdName}%20bird&searchType=image`;
       const res3 = await fetch(url3);
       let data3 = await res3.json();
       this.titlePhotos("Google photos");
